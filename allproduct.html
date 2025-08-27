@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Products - BuyNow</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f9f9f9; }
+    header { background: #007bff; padding: 15px; color: #fff; text-align: center; }
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+    .category {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+      transition: 0.3s;
+      cursor: pointer;
+    }
+    .category:hover {
+      transform: scale(1.05);
+      box-shadow: 0px 6px 12px rgba(0,0,0,0.2);
+    }
+    .category span {
+      font-size: 40px;
+      display: block;
+      margin-bottom: 10px;
+    }
+    .category h3 {
+      margin: 5px 0;
+      font-size: 18px;
+      color: #333;
+    }
+    .category p {
+      font-size: 14px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>All Products</h1>
+  </header>
+
+  <div class="container">
+
+    <a href="electronics.html" class="category">
+      <span>📱</span>
+      <h3>Electronics</h3>
+      <p>Phones, Laptops, Gadgets</p>
+    </a>
+
+    <a href="fashion.html" class="category">
+      <span>👕</span>
+      <h3>Fashion</h3>
+      <p>Clothing, Shoes, Accessories</p>
+    </a>
+
+    <a href="books.html" class="category">
+      <span>📚</span>
+      <h3>Books</h3>
+      <p>Fiction, Non-fiction, Comics</p>
+    </a>
+
+    <a href="home-garden.html" class="category">
+      <span>🏠</span>
+      <h3>Home & Garden</h3>
+      <p>Furniture, Decor, Tools</p>
+    </a>
+
+    <a href="sports.html" class="category">
+      <span>⚽</span>
+      <h3>Sports</h3>
+      <p>Equipment, Apparel, Outdoor</p>
+    </a>
+
+    <a href="beauty.html" class="category">
+      <span>💄</span>
+      <h3>Beauty</h3>
+      <p>Skincare, Makeup, Perfumes</p>
+    </a>
+
+  </div>
+</body>
+</html>
