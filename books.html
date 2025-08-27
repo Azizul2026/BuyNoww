@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Books - BuyNow</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f9f9f9; }
+    header { background: #6a1b9a; padding: 15px; color: #fff; text-align: center; }
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+    .product {
+      background: #fff;
+      border-radius: 12px;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+      transition: 0.3s;
+    }
+    .product:hover {
+      transform: translateY(-5px);
+      box-shadow: 0px 6px 12px rgba(0,0,0,0.2);
+    }
+    .product img {
+      width: 100%;
+      max-height: 160px;
+      object-fit: contain;
+      margin-bottom: 10px;
+    }
+    .product h3 { margin: 10px 0; font-size: 18px; color: #333; }
+    .product p { font-size: 16px; color: green; font-weight: bold; }
+    .product button {
+      margin-top: 8px;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 6px;
+      background: #6a1b9a;
+      color: #fff;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .product button:hover {
+      background: #4a0072;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Books</h1>
+  </header>
+
+  <div class="container">
+    <div class="product">
+      <img src="https://via.placeholder.com/200x150" alt="Fiction Book">
+      <h3>The Great Adventure</h3>
+      <p>₹399</p>
+      <button>Buy Now</button>
+    </div>
+
+    <div class="product">
+      <img src="https://via.placeholder.com/200x150" alt="Non-fiction Book">
+      <h3>History of India</h3>
+      <p>₹549</p>
+      <button>Buy Now</button>
+    </div>
+
+    <div class="product">
+      <img src="https://via.placeholder.com/200x150" alt="Comics">
+      <h3>Superhero Comics</h3>
+      <p>₹299</p>
+      <button>Buy Now</button>
+    </div>
+
+    <div class="product">
+      <img src="https://via.placeholder.com/200x150" alt="Novel">
+      <h3>Romantic Novel</h3>
+      <p>₹449</p>
+      <button>Buy Now</button>
+    </div>
+  </div>
+</body>
+</html>
