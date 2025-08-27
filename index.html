@@ -528,6 +528,7 @@
         <div class="container">
             <div class="header-content">
                 <a href="#" class="logo">BuyNow</a>
+                <a href="orders.html">My Orders</a>
                 
                 <div class="search-bar">
                     <input type="text" placeholder="Search for products, brands and more..." id="searchInput">
@@ -548,15 +549,16 @@
     <!-- Navigation -->
     <nav class="nav">
         <div class="container">
-            <ul class="nav-links">
-                <li><a href="#" onclick="showSection('home')">Home</a></li>
-                <li><a href="#" onclick="filterProducts('electronics')">Electronics</a></li>
-                <li><a href="#" onclick="filterProducts('fashion')">Fashion</a></li>
-                <li><a href="#" onclick="filterProducts('books')">Books</a></li>
-                <li><a href="#" onclick="filterProducts('home')">Home & Garden</a></li>
-                <li><a href="#" onclick="filterProducts('sports')">Sports</a></li>
-                <li><a href="#" onclick="showSection('deals')">Today's Deals</a></li>
-            </ul>
+           <ul class="nav-links">
+  <li><a href="index.html">Home</a></li>
+  <li><a href="electronic.html">Electronics</a></li>
+  <li><a href="fashion.html">Fashion</a></li>
+  <li><a href="books.html">Books</a></li>
+  <li><a href="garden.html">Home & Garden</a></li>
+  <li><a href="sports.html">Sports</a></li>
+  <li><a href="deals.html">Today's Deals</a></li>
+</ul>
+
         </div>
     </nav>
 
@@ -653,28 +655,36 @@
                 <div class="footer-section">
                     <h3>About BuyNow</h3>
                     <ul>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Press</a></li>
-                        <li><a href="#">Investor Relations</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Customer Service</h3>
-                    <ul>
-                        <li><a href="#">Help Center</a></li>
-                        <li><a href="#">Contact Us</a></li>
-                        <li><a href="#">Returns & Refunds</a></li>
-                        <li><a href="#">Shipping Info</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Connect</h3>
-                    <ul>
-                        <li><a href="#">Facebook</a></li>
-                        <li><a href="#">Twitter</a></li>
-                        <li><a href="#">Instagram</a></li>
-                        <li><a href="#">YouTube</a></li>
+                       <div class="footer-section">
+  <h3>Company</h3>
+  <ul>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="careers.html">Careers</a></li>
+    <li><a href="press.html">Press</a></li>
+    <li><a href="investors.html">Investor Relations</a></li>
+  </ul>
+</div>
+
+<div class="footer-section">
+  <h3>Customer Service</h3>
+  <ul>
+    <li><a href="help.html">Help Center</a></li>
+    <li><a href="contact.html">Contact Us</a></li>
+    <li><a href="returns.html">Returns & Refunds</a></li>
+    <li><a href="shipping.html">Shipping Info</a></li>
+  </ul>
+</div>
+
+<div class="footer-section">
+  <h3>Connect</h3>
+  <ul>
+    <li><a href="https://facebook.com" target="_blank">Facebook</a></li>
+    <li><a href="https://twitter.com" target="_blank">Twitter</a></li>
+    <li><a href="https://instagram.com" target="_blank">Instagram</a></li>
+    <li><a href="https://youtube.com" target="_blank">YouTube</a></li>
+  </ul>
+</div>
+
                     </ul>
                 </div>
                 <div class="footer-section">
@@ -1188,3 +1198,4 @@
         function compareProduct(productId) {
             showNotification('Product comparison feature coming soon!', 'info');
         }
+
