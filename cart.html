@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart - BuyNow</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f9f9f9; }
+    header { background: #007bff; padding: 15px; color: #fff; text-align: center; }
+    .container { padding: 20px; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 12px;
+      text-align: center;
+    }
+    th {
+      background: #007bff;
+      color: white;
+    }
+    td img {
+      width: 80px;
+      height: auto;
+    }
+    .total {
+      text-align: right;
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+    .checkout-btn {
+      display: block;
+      margin: 20px auto;
+      padding: 12px 20px;
+      background: #28a745;
+      color: white;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      text-align: center;
+    }
+    .checkout-btn:hover {
+      background: #218838;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Your Shopping Cart</h1>
+  </header>
+
+  <div class="container">
+    <table>
+      <tr>
+        <th>Product</th>
+        <th>Image</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Total</th>
+      </tr>
+      <tr>
+        <td>Sample Product</td>
+        <td><img src="https://via.placeholder.com/80" alt="product"></td>
+        <td>₹999</td>
+        <td>1</td>
+        <td>₹999</td>
+      </tr>
+    </table>
+
+    <div class="total">Grand Total: ₹999</div>
+
+    <button class="checkout-btn">Proceed to Checkout</button>
+  </div>
+</body>
+</html>
