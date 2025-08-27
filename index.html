@@ -535,7 +535,7 @@
                 </div>
                 
                 <div class="header-actions">
-                    <button class="header-btn" onclick="showLogin()">👤 Login</button>
+                    <button class="header-btn" onclick="window.location.href='login.html'">👤 Login</button>
                     <button class="header-btn" onclick="toggleCart()">
                         🛒 Cart 
                         <span class="cart-count" id="cartCount">0</span>
@@ -643,26 +643,6 @@
                 <span id="totalAmount">$0.00</span>
             </div>
             <button class="checkout-btn" onclick="checkout()">Proceed to Checkout</button>
-        </div>
-    </div>
-
-    <!-- Login Modal -->
-    <div class="modal" id="loginModal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <h2 style="margin-bottom: 1rem;">Login to BuyNow</h2>
-            <form onsubmit="handleLogin(event)">
-                <div style="margin-bottom: 1rem;">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" required style="width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ddd; border-radius: 5px;">
-                </div>
-                <div style="margin-bottom: 1rem;">
-                    <label for="password">Password:</label>
-                    <input type="password" id="password" required style="width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ddd; border-radius: 5px;">
-                </div>
-                <button type="submit" class="btn-primary" style="width: 100%; margin-bottom: 1rem;">Login</button>
-                <p style="text-align: center;">Don't have an account? <a href="#" onclick="showRegister()">Register here</a></p>
-            </form>
         </div>
     </div>
 
@@ -831,6 +811,7 @@
         function init() {
             displayProducts(products);
             updateCartCount();
+            checkUserLogin();
         }
 
         // Display products
@@ -1003,28 +984,62 @@
             toggleCart();
         }
 
-        // Show login modal
-        function showLogin() {
-            document.getElementById('loginModal').style.display = 'flex';
+        // Check if user is logged in and update header
+        function checkUserLogin() {
+            const user = localStorage.getItem('buynow_user') || sessionStorage.getItem('buynow_user');
+            if (user) {
+                const userData = JSON.parse(user);
+                const loginBtn = document.querySelector('[onclick="window.location.href=\'login.html\'"]');
+                if (loginBtn) {
+                    loginBtn.innerHTML = `👤 ${userData.name.split(' ')[0]}`;
+                    loginBtn.onclick = function() { showUserMenu(); };
+                }
+            }
         }
 
-        // Close modal
-        function closeModal() {
-            document.getElementById('loginModal').style.display = 'none';
+        // Show user menu (when logged in)
+        function showUserMenu() {
+            const user = JSON.parse(localStorage.getItem('buynow_user') || sessionStorage.getItem('buynow_user'));
+            const menu = `
+                <div style="position: absolute; top: 100%; right: 0; background: white; border: 1px solid #ddd; border-radius: 10px; padding: 1rem; min-width: 200px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); z-index: 1000;">
+                    <p style="margin-bottom: 1rem; font-weight: bold; color: #333;">Welcome, ${user.name}!</p>
+                    <button onclick="window.location.href='profile.html'" style="width: 100%; padding: 8px; margin-bottom: 5px; border: none; background: #f8f9fa; border-radius: 5px; cursor: pointer;">👤 My Profile</button>
+                    <button onclick="window.location.href='orders.html'" style="width: 100%; padding: 8px; margin-bottom: 5px; border: none; background: #f8f9fa; border-radius: 5px; cursor: pointer;">📦 My Orders</button>
+                    <button onclick="logout()" style="width: 100%; padding: 8px; border: none; background: #dc3545; color: white; border-radius: 5px; cursor: pointer;">🚪 Logout</button>
+                </div>
+            `;
+            
+            // Remove existing menu
+            const existingMenu = document.querySelector('.user-menu');
+            if (existingMenu) {
+                existingMenu.remove();
+            } else {
+                // Add menu
+                const menuDiv = document.createElement('div');
+                menuDiv.className = 'user-menu';
+                menuDiv.innerHTML = menu;
+                menuDiv.style.position = 'relative';
+                document.querySelector('.header-actions').appendChild(menuDiv);
+                
+                // Close menu when clicking outside
+                setTimeout(() => {
+                    document.addEventListener('click', function(e) {
+                        if (!menuDiv.contains(e.target)) {
+                            menuDiv.remove();
+                        }
+                    });
+                }, 100);
+            }
         }
 
-        // Handle login
-        function handleLogin(event) {
-            event.preventDefault();
-            const email = document.getElementById('email').value;
-            showNotification(`Welcome back! Logged in as ${email}`, 'success');
-            closeModal();
-        }
-
-        // Show register (placeholder)
-        function showRegister() {
-            showNotification('Registration feature coming soon!', 'info');
-            closeModal();
+        // Logout function
+        function logout() {
+            localStorage.removeItem('buynow_user');
+            sessionStorage.removeItem('buynow_user');
+            showNotification('Logged out successfully!', 'success');
+            setTimeout(() => {
+                window.location.reload();
+            }, 1500);
         }
 
         // Show sections
